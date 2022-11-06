@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int queue[10],rear=0,front=0,item,choice,n,i;
+int queue[10],rear=0,front=0,item,choice,n,i,x;
 char ch;
 void insertq()
 {
