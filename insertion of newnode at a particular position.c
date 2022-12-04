@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<conio.h>
 #include<stdlib.h>
 struct node
 {
@@ -40,33 +41,38 @@ void display()
         temp=temp->link;
     }
 }
-void insertpos()
+void insert_pos()
 {
-    struct node*newnode,*temp;  
-    int pos,count=0;     
-    printf("enter the position to insert node:\n");
+    int pos,i=1;
+    struct node*temp,*newnode;
+    newnode=(struct node*)malloc(sizeof(struct node));
+    printf("enter the data to insert\n");
+    scanf("%d",&newnode->data);
+    printf("enter the position to insert");
     scanf("%d",&pos);
     if(pos>count)
-	{
-	   printf("invalid position");
-	}
+    {
+        printf("invalid position");
+    }
     else
+    {
+        temp=start;
+        while(i<pos)
         {
-    printf("enter the item:\n");
+            temp=temp->link;
+            i++;
+        }
+    printf("enter the data");
     scanf("%d",&newnode->data);
-    temp=start;
-    while(count!=pos)
-	{
-		temp=temp->link;
-                count++;
-	}
-		newnode->link=temp->link;
-		temp->link=newnode;
-}
+    newnode->link=temp->link;
+    temp->link=newnode;
+    }
+}        
+
 void main()
 {
-	create();
-	display();
-	insertpos();
-	display();
+    create();
+    display();
+    insert_pos();
+    display();
 }
