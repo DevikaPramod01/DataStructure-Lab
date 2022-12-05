@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h>
 #include<stdlib.h>
 struct node
 {
@@ -7,12 +6,14 @@ struct node
     struct node*link;
 }
 *start=NULL;
+int count = 0;
 void create()
 {
     struct node*newnode,*current;
     int i,n;
     printf("how many nodes do you want to create\n");
     scanf("%d",&n);
+	
     for(i=1;i<=n;i++)
     {
         newnode=(struct node*)malloc(sizeof(struct node));
@@ -30,6 +31,7 @@ void create()
             current=newnode;
         }
     }
+	count += n;
 }
 void display()
 {
@@ -46,7 +48,7 @@ void insert_pos()
     int pos,i=1;
     struct node*temp,*newnode;
     newnode=(struct node*)malloc(sizeof(struct node));
-    printf("enter the data to insert\n");
+    printf("enter the data");
     scanf("%d",&newnode->data);
     printf("enter the position to insert");
     scanf("%d",&pos);
@@ -62,8 +64,6 @@ void insert_pos()
             temp=temp->link;
             i++;
         }
-    printf("enter the data");
-    scanf("%d",&newnode->data);
     newnode->link=temp->link;
     temp->link=newnode;
     }
