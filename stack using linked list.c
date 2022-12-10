@@ -1,8 +1,6 @@
 #include <stdio.h>  
-#include <stdlib.h>  
-void push();  
-void pop();  
-void display();  
+#include<conio.h>
+#include <stdlib.h>   
 struct node   
 {  
 int data;  
@@ -11,11 +9,14 @@ struct node *link;
 struct node *head;   
 void main ()  
 {  
+void push();  
+void pop();  
+void display();
     int choice=0;     
     while(choice != 4)  
     {   
-        printf("\n1.Push\n2.Pop\n3.Show\n4.Exit");  
-        printf("\n Enter your choice \n");        
+        printf("1.Push\n 2.Pop\n 3.Display\n 4.Exit\n");  
+        printf("Enter your choice \n");        
         scanf("%d",&choice);  
         switch(choice)  
         {  
@@ -25,24 +26,25 @@ void main ()
                 break; 
             case 3:display();  
                 break;
-            case 4:printf("Exit");  
+            case 4:printf("Exit\n");  
                 break;  
             default:  
-           printf("Please Enter valid choice ");       
+           printf("\nPlease Enter valid choice\n ");       
     } 
 }  
 }  
 void push ()  
 {  
     int data;  
-    struct node *temp = (struct node*)malloc(sizeof(struct node));   
+    struct node *temp;
+    temp=(struct node*)malloc(sizeof(struct node));   
     if(temp == NULL)  
     {  
-        printf("stack full");   
+        printf("\nstack full");   
     }  
     else   
     {  
-        printf("Enter the data");  
+        printf("\nEnter the data ");  
         scanf("%d",&data);  
         if(head==NULL)  
         {         
@@ -57,7 +59,7 @@ void push ()
             head=temp;  
                
         }  
-        printf("%d pushed",temp->data = data);  
+        printf("\n %d pushed",temp->data = data);  
           
     }  
 }  
@@ -68,7 +70,7 @@ void pop()
     struct node *temp;  
     if (head == NULL)  
     {  
-        printf("Underflow");  
+        printf("\n Underflow");  
     }  
     else  
     {  
@@ -76,7 +78,7 @@ void pop()
         temp = head;  
         head = head->link;  
         free(temp);  
-        printf("%d popped",item = head->data);  
+        printf("\n %d popped",item = head->data);  
           
     }  
 }  
@@ -91,7 +93,7 @@ void display()
     }  
     else  
     {  
-        printf("Stack elements are: \n");  
+        printf("\n Stack elements are: \n");  
         while(temp!=NULL)  
         {  
             printf("%d\n",temp->data);  
@@ -99,3 +101,4 @@ void display()
         }  
     }  
 } 
+
