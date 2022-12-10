@@ -1,5 +1,5 @@
 #S1_MCA DataStructure-Lab
-Lab cycle 1
+Lab cycle 1																																																													
 1.read and display array
 2.sorting array-2 types
 3.merging arrays-2 types
