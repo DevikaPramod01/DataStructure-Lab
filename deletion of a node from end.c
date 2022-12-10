@@ -43,22 +43,33 @@ void display()
 }
 void delete_end()
 {
-    struct node*temp,*temp1,*head;
-    temp=start;
-    while(temp->link!=NULL)
+    struct node*temp,*temp1;
+    if(start==NULL)
     {
-        temp1=temp;
-        temp=temp->link;
-    }
-    if(temp=start)
-    {
-        start=NULL;
+        printf("empty");
     }
     else
     {
-        temp1->link=NULL;
-    }
+       temp=start;
+       temp1=start;
+       //traverse to the last node
+       while(temp->link!=NULL)
+       {
+        temp1=temp;
+        temp=temp->link;
+       }
+       if(temp==start)
+       {
+        start=NULL;
+       }
+       else
+       {
+         //disconnect link of last and sec last node
+         temp1->link=NULL;
+       }
     free(temp);
+    printf("after deletion:\n");
+}
 }
 void main()
 {
