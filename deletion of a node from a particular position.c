@@ -1,3 +1,5 @@
+
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -7,6 +9,7 @@ struct node
     struct node*link;
 }
 *start=NULL;
+int count=0;
 void create()
 {
     struct node*newnode,*current;
@@ -30,6 +33,7 @@ void create()
             current=newnode;
         }
     }
+    count+=n;
 }
 void display()
 {
@@ -41,26 +45,30 @@ void display()
         temp=temp->link;
     }
 }
-void delete_pos()
+void deletepos()
 {
-    struct node*temp,*nextnode;
-    int i=1,pos;
-    temp=start;
-    printf("enter the position");
-    scanf("%d",&pos);
-    while(i<pos-1)
-    {
-        temp=temp->link;
-        i++;
-    }
-    nextnode=temp->link;
-    temp->link=nextnode->link;
-    free(nextnode);
+     struct node *temp, *temp1;  
+        int loc,i; 
+        printf("enter position to delete");  
+        scanf("%d",&loc);  
+        temp=start;  
+        for(i=0;i<loc;i++)  
+        {  
+            temp1 = temp;       
+            temp = temp->link;   
+            if(temp == NULL)  
+            {  
+                printf("\n invalid position");  
+            }  
+        }  
+        temp1 ->link = temp ->link;  
+        free(temp);  
+        printf("after deletion /n");  
 }
 void main()
 {
-    void create();
-    void display();
-    void delete_pos();
-    void display();
+    create();
+    display();
+    deletepos();
+    display();
 }
