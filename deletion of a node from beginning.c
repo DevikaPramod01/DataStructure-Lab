@@ -44,16 +44,18 @@ void display()
 void delete_beginning()
 {
     struct node*temp;
-    if(start=NULL)
-    {
-        printf("list is empty");
-    }
-    else
+    temp=start;
+    if(start!=NULL)
     {
     temp=start;
     start=start->link;
+     printf("deleted=%d\n ",temp->data);
     free(temp);
+   
     printf("after deletion \n");
+    }
+    else{
+        printf("empty");
     }
 
 }
