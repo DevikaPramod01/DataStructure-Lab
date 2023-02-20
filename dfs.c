@@ -1,26 +1,39 @@
-#include <stdio.h>
-void DFS(int);
-int G[10][10], visited[10], n; // n is no of vertices and graph is sorted in array G[10][10]
+#include<stdio.h>
 void main()
 {
-int i, j;
-printf("Enter number of vertices:");
-scanf("%d", &n);
-// read the adjacency matrix
-printf("\nEnter adjacency matrix of the graph:");
-for (i = 0; i < n; i++)
-for (j = 0; j < n; j++)
-scanf("%d", &G[i][j]);
-for (i = 0; i < n; i++)
-visited[i] = 0;
-DFS(0);
+    int n, adj[10][10],i,j,source,start;
+    int stack[10],visited[10]={0},top=-1;
+    printf("enter the no of vertices:");
+    scanf("%d",&n);
+    printf("enter the adjacent matrix:\n");
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            scanf("%d",&adj[i][j]);
+        }
+    }
+
+    printf("enter the source vertex:");
+    scanf("%d",&source);
+    stack[++top]=source;
+    visited[source]=1;
+    start=source;
+    while(top!=-1)
+    {
+        start=stack[top--];
+        printf("%d\t",start);
+        for(i=1;i<=n;i++)
+        {
+            if(adj[start][i]==1 && visited[i]==0)
+            {
+                stack[++top]=i;
+                visited[i]=1;
+            }
+        }
+    }
 }
-void DFS(int i)
-{
-int j;
-printf("\n %d \t", i);
-visited[i] = 1;
-for (j = 0; j < n; j++)
-if (!visited[j] && G[i][j] == 1)
-DFS(j);
-}
+
+-.
+ 
+	 
